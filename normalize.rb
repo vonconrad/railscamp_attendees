@@ -1,6 +1,6 @@
 require 'csv'
 
-attendees = CSV.read('rcx.csv', headers: true).sort { |x, y| x['First'] <=> y['First'] }
+attendees = CSV.read('rcx.csv', headers: true).sort { |x, y| "#{x['First']} #{x['Last']}" <=> "#{y['First']} #{y['Last']}" }
 
 CSV.open('rcx.csv', 'wb') do |csv|
   csv << ['First', 'Last', 'Twitter']
